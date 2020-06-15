@@ -31,11 +31,42 @@ function loadData(numberofJokes)
     const theObj = JSON.parse(this.responseText);
     const theJokes = theObj.value;
     theJokes.forEach(element => {
-    //    console.log(typeof element.id + ' ' + element.joke );
-       updateUI(element.id,element.joke);
+    console.log(element.id + ' ' + element.joke );
+       updateUI(numberofJokes,element.id,element.joke);
     });
   }
 
   xhr.send();
 }
 
+// Update UI
+function updateUI(num,id, joke)
+{
+let tot = id;
+tot += id;
+const ul = document.querySelector('#list');
+const li = document.createElement('li');
+const total= document.querySelector('#total');
+li.classList.add('list-group-item', 'd-flex', 'justify-content-between', 'lh-condensed');
+
+li.innerHTML = `
+<div>
+<h6 class="my-0">New Joke</h6>
+<small class="text-muted">${joke}</small>
+</div>
+<span class="text-muted">$${id}</span>
+`  ;
+ul.appendChild(li);
+
+// Total $
+const li2  = document.createElement('li');
+
+   li2.innerHTML =`
+   <li class="list-group-item d-flex justify-content-between">
+   <span>Total (USD)</span>
+   <strong>$${tot}</strong>
+   </li> 
+   `;
+ul.appendChild(li2);
+total.innerText = num;
+}
