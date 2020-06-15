@@ -25,16 +25,22 @@ function loadData(numberofJokes)
   const xhr = new XMLHttpRequest();
 
   xhr.open('GET', `http://api.icndb.com/jokes/random/${numberofJokes}`, true);
- 
+  
   xhr.onload = function()
   {
     const theObj = JSON.parse(this.responseText);
     const theJokes = theObj.value;
+    let sum = 0;
+    const idList = theJokes.map(item =>{item.id});
     theJokes.forEach(element => {
-    console.log(element.id + ' ' + element.joke );
+    //   console.log(element.id + ' ' + element.joke );
        updateUI(numberofJokes,element.id,element.joke);
+       sum +=element.id;
     });
+    updateTotal(sum);
+    
   }
+  
 
   xhr.send();
 }
@@ -42,11 +48,9 @@ function loadData(numberofJokes)
 // Update UI
 function updateUI(num,id, joke)
 {
-let tot = id;
-tot += id;
 const ul = document.querySelector('#list');
 const li = document.createElement('li');
-const total= document.querySelector('#total');
+
 li.classList.add('list-group-item', 'd-flex', 'justify-content-between', 'lh-condensed');
 
 li.innerHTML = `
@@ -57,16 +61,15 @@ li.innerHTML = `
 <span class="text-muted">$${id}</span>
 `  ;
 ul.appendChild(li);
+document.querySelector('#total').innerHTML =num;
+}
 
-// Total $
-const li2  = document.createElement('li');
 
-   li2.innerHTML =`
-   <li class="list-group-item d-flex justify-content-between">
-   <span>Total (USD)</span>
-   <strong>$${tot}</strong>
-   </li> 
-   `;
-ul.appendChild(li2);
-total.innerText = num;
+// Update Sum
+// Update UI
+function updateTotal(sum)
+{
+   
+const li = document.querySelector('#sum');
+   li.innerHTML =`$${sum}`;
 }
