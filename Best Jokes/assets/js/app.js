@@ -11,7 +11,9 @@ function addToList(e)
     }
     else
     {
-        loadData(Number(inputval));
+      const ul = document.querySelector('#list');
+      ul.innerHTML = '';  
+      loadData(Number(inputval));
     }
  
 
@@ -50,8 +52,11 @@ function updateUI(num,id, joke)
 {
 const ul = document.querySelector('#list');
 const li = document.createElement('li');
+// const li = document.createElement('li');
 
-li.classList.add('list-group-item', 'd-flex', 'justify-content-between', 'lh-condensed');
+  // ul.innerHTML = '';
+
+li.classList.add('remove','list-group-item', 'd-flex', 'justify-content-between', 'lh-condensed');
 
 li.innerHTML = `
 <div>
