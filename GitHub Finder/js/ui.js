@@ -34,4 +34,9 @@ class UI {
         console.log(user);
     }
 
+    clearProfile()
+    {
+        this.profile.innerHTML = '';
+    }
+
 }
