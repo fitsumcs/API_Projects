@@ -33,10 +33,38 @@ class UI {
 
         console.log(user);
     }
-
+// clear profile when empty
     clearProfile()
     {
         this.profile.innerHTML = '';
     }
+// show alert message
+    showError(msg,classType)
+    {
+        // clear 
+        this.clearAlert();
+      const div = document.createElement('div');
+      div.className = classType;
+      div.appendChild(document.createTextNode(msg));
+    //   parent 
+    const container = document.querySelector('.searchContainer');
+    const con2 = document.querySelector('.search');
+
+    container.insertBefore(div,con2);
+
+    // timeout
+    setTimeout(()=>{this.clearAlert()},1000)
+    
+
+}
+// clear alert 
+clearAlert()
+{
+    const alert = document.querySelector('.alert');
+    if(alert)
+    {
+        alert.remove();
+    }
+}
 
 }

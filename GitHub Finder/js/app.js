@@ -14,6 +14,7 @@ textI.addEventListener('keyup',e=>{
         if(data.profile.message === 'Not Found')
         {
             // show error
+            ui.showError('User Does Not Exist', 'alert alert-danger');
         }
         else
         {
