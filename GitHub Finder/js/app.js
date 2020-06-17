@@ -15,11 +15,13 @@ textI.addEventListener('keyup',e=>{
         {
             // show error
             ui.showError('User Does Not Exist', 'alert alert-danger');
+            
         }
         else
         {
             // show profile
             ui.showProfile(data.profile);
+            ui.showRepo(data.repo);
             // console.log(data);
         }
     });

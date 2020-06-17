@@ -31,7 +31,7 @@ class UI {
         <div id="prepo"></div>
         `;
 
-        console.log(user);
+        // console.log(user);
     }
 // clear profile when empty
     clearProfile()
@@ -65,6 +65,30 @@ clearAlert()
     {
         alert.remove();
     }
+}
+
+// show repos
+showRepo(repos)
+{
+ let output = '';
+ repos.forEach((element)=>{
+   output += `
+     <div class="card card-body mb-2">
+     <div class="row">
+       <div class="col-md-6">
+       <a href="${element.html_url}">${element.name}</a>
+       </div>
+       <div class="col-md-6">
+       <span class="badge badge-primary">Starts : ${element.stargazers_count}</span>
+        <span class="badge badge-secondary">Watchers : ${element.watchers_count}</span>
+        <span class="badge badge-success">Forks: ${element.form_count}</span>
+       </div>
+     </div>
+     
+     </div>
+   `;
+ });
+  document.getElementById('prepo').innerHTML = output;
 }
 
 }
