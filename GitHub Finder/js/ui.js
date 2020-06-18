@@ -9,25 +9,36 @@ class UI {
             <div class="row">  
                 <div class="col-md-3">
                     <img class="img-fluid mb-2" src="${user.avatar_url}">
-                    <a href="${user.html_url}" target="blank" class="btn btn-primary btn-block mb-4" >View Porfile</a>
+                    <a href="${user.html_url}" target="blank" class="btn btn-secondary btn-block mb-4" >View Porfile</a>
                 </div>
                 <div class="col-md-9">
-                    <span class="badge badge-primary">#Public Repo : ${user.public_repos}</span>
-                    <span class="badge badge-secondary">#Public Gists : ${user.public_gists}</span>
-                    <span class="badge badge-success">#Followers: ${user.followers}</span>
-                    <span class="badge badge-info">#Following: ${user.following}</span>
+                    <span class="badge badge-primary font-weight-bold">#Public Repo : ${user.public_repos}</span>
+                    <span class="badge badge-secondary font-weight-bold">#Public Gists : ${user.public_gists}</span>
+                    <span class="badge badge-success font-weight-bold">#Followers: ${user.followers}</span>
+                    <span class="badge badge-info font-weight-bold">#Following: ${user.following}</span>
                     <br><br>
                     <ul class="list-group">
-                    <li class="list-group-item">Company: ${user.company}</li>
-                    <li class="list-group-item">Location: ${user.location}</li>
-                    <li class="list-group-item">Member Since: ${user.created_at}</li>
-                    <li class="list-group-item">Website/Blog: ${user.blog}</li>
+                    <li class="list-group-item font-weight-bold">Company: ${user.company}</li>
+                    <li class="list-group-item font-weight-bold">Location: ${user.location}</li>
+                    <li class="list-group-item font-weight-bold">Member Since: ${user.created_at}</li>
+                    <li class="list-group-item font-weight-bold">Website/Blog: ${user.blog}</li>
                     </ul>
                 </div>
               
             </div>
         </div>
-        <h3 class="page-heading mb-3">Public Repositories</h3>
+        <h3 class="page-heading mb-3">Public Repositories <span class="badge badge-pill badge-secondary ">10</spa></h3>
+        <div class="card card-body mb-2">
+        <div class="row">
+          <div class="col-md-6">
+          <h6 class="page-heading mb-3">Repositorie Name</h6>
+          </div>
+          <div class="col-md-6">
+          <h6 class="page-heading mb-3">Repositorie Details [starts,watchers,Forks]</h6>
+          </div>
+        </div>
+        
+        </div>
         <div id="prepo"></div>
         `;
 
