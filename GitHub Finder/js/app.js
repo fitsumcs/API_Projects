@@ -1,5 +1,6 @@
 const textI = document.querySelector('#searchUser');
 const gitH = new GitHub();
+const ui = new UI();
 textI.addEventListener('keyup',e=>{
 
    const input = textI.value;
@@ -17,7 +18,8 @@ textI.addEventListener('keyup',e=>{
         else
         {
             // show profile
-            console.log(data);
+            ui.showProfile(data.profile);
+            // console.log(data);
         }
     });
    }
