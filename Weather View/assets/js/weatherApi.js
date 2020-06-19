@@ -11,7 +11,7 @@ class WeatherAPI{
 async getWeatherInfo()
 {
     // repose 
-    const respone =await fetch(`https://api.weatherbit.io/v2.0/current?city=${this.city}=${this.Key}`)
+    const respone =await fetch(`https://api.weatherbit.io/v2.0/current?city=${this.city}&key=${this.Key}`)
     const responseData = await respone.json();
     
     return responseData.data;
