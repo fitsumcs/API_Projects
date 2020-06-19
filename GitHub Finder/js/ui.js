@@ -92,7 +92,7 @@ showRepo(repos)
        <div class="col-md-6">
        <span class="badge badge-primary">Starts : ${element.stargazers_count}</span>
         <span class="badge badge-secondary">Watchers : ${element.watchers_count}</span>
-        <span class="badge badge-success">Forks: ${element.form_count}</span>
+        <span class="badge badge-success">Forks: ${element.forks_count}</span>
        </div>
      </div>
      
