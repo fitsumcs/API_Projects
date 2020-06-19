@@ -1,5 +1,5 @@
 const weather = new WeatherAPI('London','Boston');
-
+const ui = new WeatherUI();
 // On Dom load 
 document.addEventListener('DOMContentLoaded',getWeatherData);
 
@@ -9,10 +9,10 @@ function getWeatherData()
 {
     weather.getWeatherInfo()
     .then(data=>{
-        console.log(data)
+        ui.displayData(data[0]);
     })
     .catch(err=>{
-        console.log('Err')
+        console.log(err)
     })
 
 }
