@@ -33,7 +33,7 @@ function viewNames(e)
             
             `;
         })
-       .catch(()=>resultDiv.innerHTML = 'The Server is Down!!')
+       .catch(()=>resultDiv.innerHTML = '<tr>Server is Down</<tr>')
     }
    
 
