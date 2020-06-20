@@ -130,7 +130,7 @@ function displaydata(country,year)
     });
 
     resultDiv.innerHTML = '<h3>Event Detail </h3>';
-    tableRow.innerHTML = '<th>Name of The Event</th><th>Date of The Event</th><th>Type of Event</th><th>Description of the Event</th>';
+    tableRow.innerHTML = '<th>Name of The Event</th><th>Event Date</th><th>Type of Event</th><th>Description of the Event</th>';
     
 
 }
