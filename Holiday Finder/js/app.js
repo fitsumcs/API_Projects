@@ -64,7 +64,7 @@ function viewCalander(e)
   const country = sCountry.value;
   const year = sYears.value;
 
-  if(country==='' || year === '')
+  if(year === '')
   {
     alert('Please Enter data');  
     
@@ -106,7 +106,7 @@ function displaydata(country,year)
     const tableRow = document.querySelector('#head');
     const resultDiv = document.querySelector('#det');
     const cont = document.querySelector('#cont');
-    let res;
+    let result='';
     
   getData(country,year)
   .then(data=>{
@@ -117,20 +117,21 @@ function displaydata(country,year)
         // console.log(element.name)
         // console.log(element.type[0])
         // console.log(element.locations)
-        // result += `
-        // <td>${element.name}</td>
-        // <td>${element.country.name}</td>
-        // <td>${element.date.iso}</td>
-        // <td>${element.type[0]}</td>
-        // <td>${element.description}</td>
-        // `;
-        res=element;
+        result += `
+        <tr>
+        <td>${element.name}</td>
+        <td>${element.date.iso}</td>
+        <td>${element.type[0]}</td>
+        <td>${element.description}</td>
+        </tr>
+        `;
       })
+      cont.innerHTML = result;
     });
 
     resultDiv.innerHTML = '<h3>Event Detail </h3>';
-    tableRow.innerHTML = '<th>Name</th><th>Country</th><th>Date</th><th>Type</th><th>locations</th><th>Description</th>';
-    cont.innerHTML = res;
+    tableRow.innerHTML = '<th>Name of The Event</th><th>Date of The Event</th><th>Type of Event</th><th>Description of the Event</th>';
+    
 
 }
 async function getData(country,year)
