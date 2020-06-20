@@ -6,9 +6,8 @@ class UI
 
    }
 
-addYear()
+addYear(sYears)
 {
-    const sYears = document.querySelector('#year');
   // Last 20 years 
   const max = new Date().getFullYear(); 
   const min = max - 20; 
@@ -25,14 +24,23 @@ addYear()
 addMonth(sMonth)
 {
 
-  const max = new Date().getFullYear(); 
-  const min = max - 20; 
-  for (let i =1; i<=31; i++)
+  for (let i =1; i<=12; i++)
   {
       const opt = document.createElement('option');
       opt.value = i; 
       opt.text = i;
       sMonth.appendChild(opt);
+  }
+}
+addDay(sDay)
+{
+
+  for (let i =1; i<=31; i++)
+  {
+      const opt = document.createElement('option');
+      opt.value = i; 
+      opt.text = i;
+      sDay.appendChild(opt);
   }
 
 
