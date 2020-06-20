@@ -1,11 +1,13 @@
 class UI
 {
 
+    // object from api 
+    
    constructor()
    {
 
    }
-
+// add year 
 addYear(sYears)
 {
   // Last 20 years 
@@ -21,6 +23,7 @@ addYear(sYears)
 
 
 }
+// add month
 addMonth(sMonth)
 {
 
@@ -32,6 +35,7 @@ addMonth(sMonth)
       sMonth.appendChild(opt);
   }
 }
+// Add day
 addDay(sDay)
 {
 
@@ -44,6 +48,22 @@ addDay(sDay)
   }
 
 
+}
+
+// add country 
+addCountry(data)
+{
+    // console.log(data);
+      data.then(data=>{
+        data.forEach(element => {
+            const opt = document.createElement('option');
+            opt.value = element.country_name; 
+            opt.text = element.country_name;
+            sCountry .appendChild(opt);
+            // console.log(element.country_name + ' : ' + element.countrycode )
+        });
+
+      })
 }
 
 
