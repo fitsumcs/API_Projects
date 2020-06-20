@@ -1,5 +1,8 @@
+// objects 
+const ui = new UI();
+
 // variables 
-document.addEventListener('DOMContentLoaded', addYearCountry);
+document.addEventListener('DOMContentLoaded', addYMD);
   // Generate the year 
   const sYears = document.querySelector('#year');
   // Generate the country
@@ -9,24 +12,11 @@ document.addEventListener('DOMContentLoaded', addYearCountry);
 //   button 
 document.getElementById('form').addEventListener('submit',viewCalander);
 
-// add Year 
-function addYearCountry()
+// add year , month , day
+function addYMD()
 {
-  // Last 20 years 
-  const max = new Date().getFullYear(); 
-  const min = max - 20; 
-
-
-
-  for (let i =max; i>=min; i--)
-  {
-      const opt = document.createElement('option');
-      opt.value = i; 
-      opt.text = i;
-      sYears.appendChild(opt);
-  }
-
-  addCountry();
+   ui.addYear(sYears);
+   ui.addMonth(sMonth);
 
 }
 
@@ -40,21 +30,17 @@ return data.response.countries
  
 function addCountry()
 {
-      getCountry().then(data=>{
-        data.forEach(element => {
-            const opt = document.createElement('option');
-            opt.value = element.country_name; 
-            opt.text = element.country_name;
-            sCountry .appendChild(opt);
-            // console.log(element.country_name + ' : ' + element.countrycode )
-        });
+      // getCountry().then(data=>{
+      //   data.forEach(element => {
+      //       const opt = document.createElement('option');
+      //       opt.value = element.country_name; 
+      //       opt.text = element.country_name;
+      //       sCountry .appendChild(opt);
+      //       // console.log(element.country_name + ' : ' + element.countrycode )
+      //   });
 
-      })
-    //   getCountry().then(data=>{
-        
-    //         console.log(data)
-        
-    //   })
+      // })
+  
 
 }
 
@@ -97,7 +83,7 @@ function showData(country,year,month)
         if(spinner)
         {
             spinner.remove();
-            displaydata(country,year,month);
+            // displaydata(country,year,month);
         }
     },3000);
   
