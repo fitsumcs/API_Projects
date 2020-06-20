@@ -53,14 +53,12 @@ addDay(sDay)
 // add country 
 addCountry(data)
 {
-    // console.log(data);
       data.then(data=>{
         data.forEach(element => {
             const opt = document.createElement('option');
             opt.value = element.country_name; 
             opt.text = element.country_name;
             sCountry .appendChild(opt);
-            // console.log(element.country_name + ' : ' + element.countrycode )
         });
 
       })
@@ -85,9 +83,6 @@ showData(data)
   
 }
 
-// other 
-
-
 // // display data
 displaydata(dataF)
 {
@@ -99,12 +94,6 @@ displaydata(dataF)
   
   dataF.then(data=>{
       data.forEach(element=>{
-        // console.log(element.country.name)
-        // console.log(element.date.iso)
-        // console.log(element.description)
-        // console.log(element.name)
-        // console.log(element.type[0])
-        // console.log(element.locations)
         result += `
         <tr>
         <td>${element.name}</td>
@@ -122,7 +111,5 @@ displaydata(dataF)
     
 
 }
-
-
 
 }
