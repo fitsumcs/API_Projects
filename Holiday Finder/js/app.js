@@ -4,6 +4,8 @@ document.addEventListener('DOMContentLoaded', addYearCountry);
   const sYears = document.querySelector('#year');
   // Generate the country
   const sCountry = document.querySelector('#country');
+  // Generate the month
+  const sMonth = document.querySelector('#month');
 //   button 
 document.getElementById('form').addEventListener('submit',viewCalander);
 
@@ -63,6 +65,8 @@ function viewCalander(e)
   
   const country = sCountry.value;
   const year = sYears.value;
+  const month = sMonth.value;
+ 
 
   if(year === '')
   {
@@ -71,7 +75,7 @@ function viewCalander(e)
   } 
   else{
     
-    showData(country,year);
+    showData(country,year,month);
   }
 
  
@@ -81,7 +85,7 @@ function viewCalander(e)
 }
 
 // function data load 
-function showData(country,year)
+function showData(country,year,month)
 {
     const spinner = document.querySelector('.spinner');
    
@@ -93,7 +97,7 @@ function showData(country,year)
         if(spinner)
         {
             spinner.remove();
-            displaydata(country,year);
+            displaydata(country,year,month);
         }
     },3000);
   
@@ -101,14 +105,14 @@ function showData(country,year)
 
 }
 // display data
-function displaydata(country,year)
+function displaydata(country,year,month)
 {
     const tableRow = document.querySelector('#head');
     const resultDiv = document.querySelector('#det');
     const cont = document.querySelector('#cont');
     let result='';
     
-  getData(country,year)
+  getData(country,year,month)
   .then(data=>{
       data.forEach(element=>{
         // console.log(element.country.name)
@@ -134,10 +138,10 @@ function displaydata(country,year)
     
 
 }
-async function getData(country,year)
+async function getData(country,year,month)
 {
   // Holidays 
-const response = await  fetch(`https://calendarific.com/api/v2/holidays?&api_key=8f16f6ef4437a3f80433f3a133a3f31156f22d0f&country=US&year=${year}`)
+const response = await  fetch(`https://calendarific.com/api/v2/holidays?&api_key=8f16f6ef4437a3f80433f3a133a3f31156f22d0f&country=US&year=${year}&month=${month}`)
 const data =  await response.json();
 return data.response.holidays
 
