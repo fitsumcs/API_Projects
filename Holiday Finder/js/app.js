@@ -84,7 +84,7 @@ function viewCalander(e)
 function showData(country,year)
 {
     const spinner = document.querySelector('.spinner');
-    const result = document.querySelector('#result');
+   
     const img = document.createElement('img');
     img.setAttribute('src','./img/spinner.gif');
     spinner.appendChild(img);
@@ -93,17 +93,45 @@ function showData(country,year)
         if(spinner)
         {
             spinner.remove();
+            displaydata(country,year);
         }
     },3000);
-   displaydata(country,year);
+  
     
 
 }
 // display data
 function displaydata(country,year)
 {
+    const tableRow = document.querySelector('#head');
+    const resultDiv = document.querySelector('#det');
+    const cont = document.querySelector('#cont');
+    let res;
+    
   getData(country,year)
-  .then(data=>console.log(data))
+  .then(data=>{
+      data.forEach(element=>{
+        // console.log(element.country.name)
+        // console.log(element.date.iso)
+        // console.log(element.description)
+        // console.log(element.name)
+        // console.log(element.type[0])
+        // console.log(element.locations)
+        // result += `
+        // <td>${element.name}</td>
+        // <td>${element.country.name}</td>
+        // <td>${element.date.iso}</td>
+        // <td>${element.type[0]}</td>
+        // <td>${element.description}</td>
+        // `;
+        res=element;
+      })
+    });
+
+    resultDiv.innerHTML = '<h3>Event Detail </h3>';
+    tableRow.innerHTML = '<th>Name</th><th>Country</th><th>Date</th><th>Type</th><th>locations</th><th>Description</th>';
+    cont.innerHTML = res;
+
 }
 async function getData(country,year)
 {
