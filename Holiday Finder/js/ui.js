@@ -103,7 +103,15 @@ displaydata(dataF)
         </tr>
         `;
       })
-      cont.innerHTML = result;
+      if(result)
+      {
+        cont.innerHTML = result;
+      }
+      else
+      {
+        cont.innerHTML = "<h3>No Holidays</h3>";
+      }
+      
     });
 
     resultDiv.innerHTML = '<h3>Event Detail </h3>';
