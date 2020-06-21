@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Cryptocurrency Rate Calculator</title>
+    <title>Holiday Finder</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="css/materialize.min.css">
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
 </head>
 <body>
     <div>
-        <h1 class="center">Cryptocurrency Rates Calculator</h1>
+        <h1 class="center">Holiday Finder</h1>
     </div>
     <div class="container main-content">
         <!-- Page Content goes here -->
@@ -20,22 +20,22 @@
                 <div class="row">
                     <div class="form">
                         <div class="input-field col s12">
-                                <select id="currency">
-                                    <option value="" disabled selected>- Select Currency - </option>
-                                    <option value="USD">USD</option>
+                                <select id="country">
+                                    <option value="" disabled selected>- Select Country - </option>
+                                    <!-- <option value="USD">USD</option>
                                     <option value="GBP">GBP</option>
-                                    <option value="EUR">Euro</option>
+                                    <option value="EUR">Euro</option> -->
                                 </select>
-                                <label>Currency</label>
+                                <label>Country</label>
                         </div>    
                         <div class="input-field col s12">
-                            <select id="cryptocurrency">
-                                <option value="" disabled selected>- Select Cryptocurrency -</option>
+                            <select id="year">
+                                <option value="" disabled selected>- Select Year -</option>
                             </select>
-                            <label>Cryptocurrency</label>
+                            <label>Year</label>
                         </div>
                         <div class="input-field col s12">
-                            <button class="btn waves-effect waves-light orange darken-3" type="submit" name="action">Get Valuation
+                            <button class="btn waves-effect waves-light orange darken-3" type="submit" name="action">Get Holidays
                             </button>
                         </div>
                         <div class="messages col s12"></div>
@@ -51,9 +51,6 @@
       <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
       <script type="text/javascript" src="js/materialize.min.js"></script>
 
-
-    <script src="js/cryptoAPI.js"></script>
-    <script src="js/ui.js"></script>
     <script src="js/app.js"></script>
 
     <script>
