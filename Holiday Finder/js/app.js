@@ -1,6 +1,7 @@
 // objects 
 const ui = new UI();
 const api = new HolidayApi();
+const iso =new ISO();
 // variables 
 document.addEventListener('DOMContentLoaded', addYMD);
   // Generate the year 
@@ -28,18 +29,18 @@ function addYMD()
 function viewCalander(e)
 {
   
-  const country = sCountry.value;
+  let country = sCountry.value;
   const year = sYears.value;
   const month = sMonth.value;
   const day =sDay.value; 
-
+  let myCode = iso.getKeyByValue(iso.isolist,country);
+  country =myCode;
   if(year === '')
   {
     alert('Please Enter Country and Year');  
     
   } 
   else{
-    
     ui.showData(api.getData(country,year,month,day));
   }
 
