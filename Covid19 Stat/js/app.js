@@ -1,3 +1,18 @@
-const textI = document.querySelector('#searchUser');
-const gitH = new GitHub();
+document.addEventListener('DOMContentLoaded', loadDataFromApi);
+const gitH = new CovidApi();
 const ui = new UI();
+
+function loadDataFromApi()
+{
+    
+   
+     // make the class 
+     gitH.getData().then(data=>{
+        
+             // show data
+             ui.showData(data);
+         
+     });
+    
+
+}

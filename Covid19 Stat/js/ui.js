@@ -1,82 +1,34 @@
 class UI {
     constructor() {
-        this.profile = document.querySelector('#profile');
+        this.last_updated = document.querySelector('#last-updated');
+        this.active_cases = document.querySelector('#active-cases');
+        this.death_per1m_population = document.querySelector('#death-per1m-population');
+        this.new_cases = document.querySelector('#new-cases');
+        this.new_deaths = document.querySelector('#new-deaths');
+        this.serious_critical = document.querySelector('#serious-critical');
+        this.total_cases = document.querySelector('#total-cases');
+        this.total_per1m_population = document.querySelector('#total-per1m-population');
+        this.total_deaths = document.querySelector('#total-deaths');
+        this.total_recovered = document.querySelector('#total-recovered');
+
     }
 
-    showProfile(user) {
-        this.profile.innerHTML = `
-        <div class= "card card-body mb-3">
-            <div class="row">  
-                <div class="col-md-3">
-                    <img class="img-fluid mb-2" src="${user.avatar_url}">
-                    <a href="${user.html_url}" target="blank" class="btn btn-secondary btn-block mb-4" >View Porfile</a>
-                </div>
-                <div class="col-md-9">
-                    <span class="badge badge-primary font-weight-bold">#Public Repo : ${user.public_repos}</span>
-                    <span class="badge badge-secondary font-weight-bold">#Public Gists : ${user.public_gists}</span>
-                    <span class="badge badge-success font-weight-bold">#Followers: ${user.followers}</span>
-                    <span class="badge badge-info font-weight-bold">#Following: ${user.following}</span>
-                    <br><br>
-                    <ul class="list-group">
-                    <li class="list-group-item font-weight-bold">Company: ${user.company}</li>
-                    <li class="list-group-item font-weight-bold">Location: ${user.location}</li>
-                    <li class="list-group-item font-weight-bold">Member Since: ${user.created_at}</li>
-                    <li class="list-group-item font-weight-bold">Website/Blog: ${user.blog}</li>
-                    </ul>
-                </div>
-              
-            </div>
-        </div>
-        <h3 class="page-heading mb-3">Public Repositories <span class="badge badge-pill badge-secondary ">10</spa></h3>
-        <div class="card card-body mb-2">
-        <div class="row">
-          <div class="col-md-6">
-          <h6 class="page-heading mb-3">Repositorie Name</h6>
-          </div>
-          <div class="col-md-6">
-          <h6 class="page-heading mb-3">Repositorie Details [starts,watchers,Forks]</h6>
-          </div>
-        </div>
-        
-        </div>
-        <div id="prepo"></div>
-        `;
+    showData(data) {
+        this.last_updated.innerHTML = data.data.statistic_taken_at;
+        this.active_cases.innerHTML = data.data.world_total.active_cases;
+        this.death_per1m_population.innerHTML =data.data.world_total.deaths_per_1m_population ;
+        this.new_cases.innerHTML =data.data.world_total.new_cases ;
+        this.new_deaths.innerHTML = data.data.world_total.new_deaths;
+        this.serious_critical.innerHTML = data.data.world_total.serious_critical;
+        this.total_cases.innerHTML = data.data.world_total.total_cases;
+        this.total_per1m_population.innerHTML = data.data.world_total.total_cases_per_1m_population;
+        this.total_deaths.innerHTML = data.data.world_total.total_deaths;
+        this.total_recovered.innerHTML = data.data.world_total.total_recovered;
+        // console.log(data);
 
         // console.log(user);
     }
-// clear profile when empty
-    clearProfile()
-    {
-        this.profile.innerHTML = '';
-    }
-// show alert message
-    showError(msg,classType)
-    {
-        // clear 
-        this.clearAlert();
-      const div = document.createElement('div');
-      div.className = classType;
-      div.appendChild(document.createTextNode(msg));
-    //   parent 
-    const container = document.querySelector('.searchContainer');
-    const con2 = document.querySelector('.search');
 
-    container.insertBefore(div,con2);
-
-    // timeout
-    setTimeout(()=>{this.clearAlert()},1000)
-    
-
-}
-// clear alert 
-clearAlert()
-{
-    const alert = document.querySelector('.alert');
-    if(alert)
-    {
-        alert.remove();
-    }
-}
 
 // show repos
 showRepo(repos)

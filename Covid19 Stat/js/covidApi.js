@@ -1,4 +1,4 @@
-class GitHub
+class CovidApi
 {
 
     constructor()
