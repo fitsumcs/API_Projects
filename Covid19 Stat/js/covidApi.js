@@ -16,7 +16,7 @@ class CovidApi
     });
        const data = await respose.json();
      
-      return {data}
+       return {data}
     }
 
 }
