@@ -4,23 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <!-- icon -->
-     <link rel="icon" href="./assets/img/git.png" sizes="32x32" type="image/png">
+     <link rel="icon" href="./assets/img/covid.jpg" sizes="32x32" type="image/png">
     <!-- Bootswatch ..botstrap templet -->
     <link rel="stylesheet" href="https://bootswatch.com/4/litera/bootstrap.min.css">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-    <title>GitHub Finder</title>
+    <title>Covid19 Statistics</title>
 </head>
 <body>
     
 <nav class="nav navbar navbar-dark bg-secondary mb-3">
     <div class="container">
-        <a href="" class="navbar-brand font-weight-bold"><i class="fa fa-archive"></i></i> &nbsp;&nbsp;&nbsp;Covid-19 Statistics</a>
+        <a href="" class="navbar-brand font-weight-bold"><i class="fa fa-user-md"></i>&nbsp;&nbsp;&nbsp;Covid-19 Statistics</a>
     </div>
 </nav>
 <div class="container searchContainer">
     <div class="search card card-body">
-        <li class="list-group-item font-weight-bold">Last Updated: &nbsp;&nbsp;&nbsp;<span class="badge badge-primary font-weight-bold">d</span></li>
+        <li class="list-group-item font-weight-bold">Last Updated: &nbsp;&nbsp;&nbsp;<h4 class="d-inline"><span class="badge badge-info font-weight-bold" id="last-updated">2020-06-22 07:30:01</span></h5></li>
     </div>
     <br>
     <div id="profile">
@@ -34,39 +34,39 @@
                     <tbody>
                         <tr>
                         <th scope="row">Active Cases:</th>
-                        <td> <span class="badge badge-primary font-weight-bold">d</span></td>
+                        <td id="active-cases"></td>
                         </tr>
                         <tr>
                             <th scope="row">Deaths per 1m Population:</th>
-                            <td> <span class="badge badge-primary font-weight-bold">d</span></td>
+                            <td id="death-per1m-population"></td>
                             </tr>
                         <tr>
                         <th scope="row">New Cases:</th>
-                            <td> <span class="badge badge-primary font-weight-bold">d</span></td>
+                            <td id="new-cases"> </td>
                         </tr>
                         <tr>
                         <th scope="row">New Deaths:</th>
-                                <td> <span class="badge badge-primary font-weight-bold">d</span></td>
+                                <td id="new-deaths"> </td>
                         </tr>
                         <tr>
                         <th scope="row">Serious Critical:</th>
-                            <td> <span class="badge badge-primary font-weight-bold">d</span></td>
+                            <td id="serious-critical"> </td>
                         </tr>
                         <tr>
                         <th scope="row">Total Cases:</th>
-                            <td> <span class="badge badge-primary font-weight-bold">d</span></td>
+                            <td id="total-cases"> </td>
                         </tr>
                         <tr>
                         <th scope="row">Total Cases per 1m Population:</th>
-                            <td> <span class="badge badge-primary font-weight-bold">d</span></td>
+                            <td id="total-per1m-population"> </td>
                         </tr>
                         <tr>
                          <th scope="row">Total Deaths:</th>
-                            <td> <span class="badge badge-primary font-weight-bold">d</span></td>
+                            <td id="total-deaths"> </td>
                         </tr>
                         <tr>
                             <th scope="row">Total Recovered:</th>
-                                <td> <span class="badge badge-primary font-weight-bold">d</span></td>
+                                <td id="total-recovered"> </td>
                         </tr>
                     </tbody>
                     </table>
@@ -74,31 +74,28 @@
               
             </div>
         </div>
-        <h3 class="page-heading mb-3">Statistics of each Country</h3>
+        <h3 class="page-heading mb-3">Statistics on  Countries</h3>
         <div class="card card-body mb-2">
         <div class="row">
           <div class="col-md-12">
           <!-- The Table Start -->
           <table class="table table-fluid" id="myTable">
             <thead>
-            <tr><th>Name</th><th>Email</th><th>Password</th></tr>
+            <tr>
+                <th>Country</th>
+                <th>Total Cases</th>
+                <th>New Cases</th>
+                <th>Total Deaths</th>
+                <th>New Deaths</th>
+                <th>Total Recovered</th>
+                <th>Serious Critical</th>
+                <th>Total Test</th>
+                <th></th>
+            </tr>
             </thead>
-            <tbody>
-            <tr><td>Daniel Danny</td><td>danny.daniel@gmail.com</td><td>Pass1234</td></tr>
-            <tr><td>Samuel</td><td>samuel@gmail.com</td><td>Pass1234</td></tr>
-            <tr><td>Jack</td><td>jack@gmail.com</td><td>Pass1234</td></tr>
-            <tr><td>Eureka</td><td>eureka@gmail.com</td><td>Pass1234</td></tr>
-            <tr><td>Pinky</td><td>pinky@gmail.com</td><td>Pass1234</td></tr>
-            <tr><td>Mishti</td><td>mishti@gmail.com</td><td>Pass1234</td></tr>
-            <tr><td>Puneet</td><td>puneet@gmail.com</td><td>Pass1234</td></tr>
-            <tr><td>Nick</td><td>nick@gmail.com</td><td>Pass1234</td></tr>
-            <tr><td>Danika</td><td>danika@gmail.com</td><td>Pass1234</td></tr>
-            <tr><td>Vishakha</td><td>vishakha@gmail.com</td><td>Pass1234</td></tr>
-            <tr><td>Nitin</td><td>ni3@gmail.com</td><td>Pass1234</td></tr>
-            <tr><td>Latika</td><td>latika@gmail.com</td><td>Pass1234</td></tr>
-            <tr><td>Kaavya</td><td>kaavya@gmail.com</td><td>Pass1234</td></tr>
-            <tr><td>Ishika</td><td>ishika@gmail.com</td><td>Pass1234</td></tr>
-            <tr><td>Veronika</td><td>veronika@gmail.com</td><td>Pass1234</td></tr>
+            <tbody id="data">
+           
+            
             </tbody>
             </table>
           <!-- Table Ends Here -->
