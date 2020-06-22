@@ -106,7 +106,7 @@ class UI {
                             //     total += allData[i];
                             // }
                             var tooltipPercentage = Math.round((tooltipData / total) * 100);
-                            return tooltipLabel + ': ' + tooltipData + ' (' + tooltipPercentage + '%)';
+                            return tooltipLabel + ': ' +  + tooltipPercentage + '%';
                         }
                     }},
               title: {
