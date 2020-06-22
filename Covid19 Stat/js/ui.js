@@ -111,7 +111,7 @@ class UI {
                     }},
               title: {
                 display: true,
-                text: 'Predicted world population (millions) in 2050'
+                text: 'Covid-19 Rate of Death and Recovery'
               }
             }
         });
