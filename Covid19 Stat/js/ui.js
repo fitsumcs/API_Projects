@@ -15,7 +15,6 @@ class UI {
     }
 
     showData(data) {
-        let output = '';
         this.last_updated.innerHTML = data.data.statistic_taken_at;
         this.active_cases.innerHTML = data.data.world_total.active_cases;
         this.death_per1m_population.innerHTML =data.data.world_total.deaths_per_1m_population ;
@@ -39,21 +38,7 @@ class UI {
                  {     "data"     :     "total_tests"}
             ]  
        });  
-        // data.data.countries_stat.forEach((element)=>{
-        //  output += `  
-        //  <tr>
-        //     <td>${element.country_name}</td>
-        //     <td>${element.cases}</td>
-        //     <td>${element.new_cases}</td>
-        //     <td>${element.deaths}</td>
-        //     <td>${element.new_deaths}</td>
-        //     <td>${element.total_recovered}</td>
-        //     <td>${element.serious_critical}</td>
-        //     <td>${element.total_tests}</td>
-        //  </tr>
-        // `;
-        // });
-        this.countries_stat.innerHTML = output;
+ 
         }
 
 }
