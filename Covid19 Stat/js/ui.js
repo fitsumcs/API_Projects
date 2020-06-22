@@ -26,20 +26,33 @@ class UI {
         this.total_per1m_population.innerHTML = data.data.world_total.total_cases_per_1m_population;
         this.total_deaths.innerHTML = data.data.world_total.total_deaths;
         this.total_recovered.innerHTML = data.data.world_total.total_recovered;
-        data.data.countries_stat.forEach((element)=>{
-         output += `  
-         <tr>
-            <td>${element.country_name}</td>
-            <td>${element.cases}</td>
-            <td>${element.new_cases}</td>
-            <td>${element.deaths}</td>
-            <td>${element.new_deaths}</td>
-            <td>${element.total_recovered}</td>
-            <td>${element.serious_critical}</td>
-            <td>${element.total_tests}</td>
-         </tr>
-        `;
-        });
+        $('#myTable').DataTable({  
+            "data"     :     data.data.countries_stat,  
+            "columns"     :     [  
+                 {     "data"     :     "country_name"     },  
+                 {     "data"     :     "cases"},  
+                 {     "data"     :     "new_cases"},
+                 {     "data"     :     "deaths"},
+                 {     "data"     :     "new_deaths"},
+                 {     "data"     :     "total_recovered"},
+                 {     "data"     :     "serious_critical"},
+                 {     "data"     :     "total_tests"}
+            ]  
+       });  
+        // data.data.countries_stat.forEach((element)=>{
+        //  output += `  
+        //  <tr>
+        //     <td>${element.country_name}</td>
+        //     <td>${element.cases}</td>
+        //     <td>${element.new_cases}</td>
+        //     <td>${element.deaths}</td>
+        //     <td>${element.new_deaths}</td>
+        //     <td>${element.total_recovered}</td>
+        //     <td>${element.serious_critical}</td>
+        //     <td>${element.total_tests}</td>
+        //  </tr>
+        // `;
+        // });
         this.countries_stat.innerHTML = output;
         }
 
