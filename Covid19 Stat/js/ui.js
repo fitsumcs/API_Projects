@@ -23,6 +23,7 @@ class UI {
     }
 
     showData(data) {
+        
         this.last_updated.innerHTML = data.data.statistic_taken_at;
         this.active_cases.innerHTML = data.data.world_total.active_cases;
         this.death_per1m_population.innerHTML =data.data.world_total.deaths_per_1m_population ;
@@ -33,7 +34,6 @@ class UI {
         this.total_per1m_population.innerHTML = data.data.world_total.total_cases_per_1m_population;
         this.total_deaths.innerHTML = data.data.world_total.total_deaths;
         this.total_recovered.innerHTML = data.data.world_total.total_recovered;
-          
         data.data.countries_stat.forEach(element => {
             if(element.country_name === 'Ethiopia')
         {
@@ -44,6 +44,7 @@ class UI {
             this.etotal_per1m_population.innerHTML = element.total_cases_per_1m_population;
             this.etotal_deaths.innerHTML = element.deaths;
             this.etotal_recovered.innerHTML = element.total_recovered;
+    
         }
         });
         
@@ -64,6 +65,60 @@ class UI {
        });  
  
         }
+// show chart 
+ showChart(data1)
+{
+    let tc;
+    let td;
+    let tr;
+    data1.data.countries_stat.forEach(element => {
+        if(element.country_name === 'Ethiopia')
+    {
+        tc = element.cases ;
+        td = element.deaths ;
+        tr = element.total_recovered ;
+        tc=tc.replace(/\,/g,''); // 1125, but a string, so convert it to number
+        tc=parseInt(tc,10);
+        td=td.replace(/\,/g,''); // 1125, but a string, so convert it to number
+        td=parseInt(td,10);
+        tr=tr.replace(/\,/g,''); // 1125, but a string, so convert it to number
+        tr=parseInt(tr,10);
+
+        new Chart(document.getElementById("pie-chart"), {
+            type: 'pie',
+            data: {
+              labels: ["Total", "Recoverd", "Death"],
+              datasets: [{
+                label: "Population (millions)",
+                backgroundColor: ["#0000ff", "#00ff00","#ff0000"],
+                data: [tc,tr,td]
+              }]
+            },
+            options: {
+                tooltips: {
+                    callbacks: {
+                        label: function(tooltipItem, data) {
+                            var allData = data.datasets[tooltipItem.datasetIndex].data;
+                            var tooltipLabel = data.labels[tooltipItem.index];
+                            var tooltipData = allData[tooltipItem.index];
+                            var total = allData[0];
+                            // for (var i in allData) {
+                            //     total += allData[i];
+                            // }
+                            var tooltipPercentage = Math.round((tooltipData / total) * 100);
+                            return tooltipLabel + ': ' + tooltipData + ' (' + tooltipPercentage + '%)';
+                        }
+                    }},
+              title: {
+                display: true,
+                text: 'Predicted world population (millions) in 2050'
+              }
+            }
+        });
+    }
+    });
+    
+}
 
 }
 

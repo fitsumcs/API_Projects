@@ -7,13 +7,16 @@ function loadDataFromApi()
     
    
      // make the class 
-     gitH.getData().then(data=>{
+     gitH.getData().then(data1=>{
         
              // show data
-             ui.showData(data);
+        ui.showData(data1);
+        ui.showChart(data1);
          
      });
+   
     
 
 }
+
 
