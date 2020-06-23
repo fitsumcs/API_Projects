@@ -111,7 +111,7 @@ class UI {
                             // }
                             if(tooltipLabel =='Infected Total(In)[of Tp]')
                             {
-                                var tooltipPercentage = Math.ceil((tooltipData / tp) * 100);
+                                var tooltipPercentage = ((tooltipData / tp) * 100).toFixed(3);
                                 diplay = tooltipLabel + ': ' +  + tooltipPercentage + '%';
                                 console.log(typeof tooltipLabel,tooltipData,tp)
                                 
