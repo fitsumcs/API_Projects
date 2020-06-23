@@ -139,8 +139,8 @@ class UI {
     let year = []
     for (const key in data) {
         if (data.hasOwnProperty(key)) {
-            year.push(key)
-            total.push( data[key].total_cases);
+            year.unshift(key)
+            total.unshift( data[key].total_cases);
             
             
         }
