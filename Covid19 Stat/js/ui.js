@@ -87,7 +87,7 @@ class UI {
         new Chart(document.getElementById("pie-chart"), {
             type: 'pie',
             data: {
-              labels: ["Total", "Recoverd", "Death"],
+              labels: ["Infected Total(In)[of Tp]", "Recoverd[of In]", "Death[of In]"],
               datasets: [{
                 label: "Population (millions)",
                 backgroundColor: ["#0000ff", "#00ff00","#ff0000"],
@@ -98,6 +98,8 @@ class UI {
                 tooltips: {
                     callbacks: {
                         label: function(tooltipItem, data) {
+                            let tp = 109224559;
+                            let diplay='';
                             var allData = data.datasets[tooltipItem.datasetIndex].data;
                             var tooltipLabel = data.labels[tooltipItem.index];
                             var tooltipData = allData[tooltipItem.index];
@@ -105,13 +107,23 @@ class UI {
                             // for (var i in allData) {
                             //     total += allData[i];
                             // }
-                            var tooltipPercentage = Math.round((tooltipData / total) * 100);
-                            return tooltipLabel + ': ' +  + tooltipPercentage + '%';
+                            if(tooltipLabel =='Infected Total(In)[of Tp]')
+                            {
+                                var tooltipPercentage = Math.ceil((tooltipData / tp) * 100);
+                                diplay = tooltipLabel + ': ' +  + tooltipPercentage + '%';
+                                console.log(typeof tooltipLabel,tooltipData,tp)
+                                
+                            }
+                            else{
+                                var tooltipPercentage = Math.round((tooltipData / total) * 100);
+                                diplay = tooltipLabel + ': ' +  + tooltipPercentage + '%';
+                            }
+                            return diplay;
                         }
                     }},
               title: {
                 display: true,
-                text: 'Covid-19 Rate of Death and Recovery'
+                text: 'Covid-19 Rate of Death and Recovery(Total Population[Tp] = 109.2 million of 2018)'
               }
             }
         });
