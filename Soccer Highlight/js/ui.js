@@ -1,7 +1,7 @@
 class SoccerUI {
     constructor() 
     {
-       this.divEngland = document.getElementById('nav-england');
+       this.divEngland = document.getElementById('en');
     
 
     }
@@ -9,26 +9,29 @@ class SoccerUI {
     showSoccerData(data) 
     {
         let output = '';
-        // console.log(data);
-       data.data.forEach(element => 
+        // console.log(data.data);
+       [1,2,3,4,5,6,7,7,7,7,7,7,7].forEach(element => 
         {
-         if(element.competition.name.includes('ENGLAND'))
-         {
+        //  if(element.competition.name.includes('ENGLAND'))
+        //  {
            output +=`
-           <div class="card-columns d-inline-block">
-           <div class="card" style="width: 18rem;">
-           <img class="card-img-top" src="..." alt="Card image cap">
-           <div class="card-body">
-             <h5 class="card-title">Card title</h5>
-             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-             <a href="#" class="btn btn-primary">Go somewhere</a>
+           
+           <div class="col-sm-6  mb-3">
+           <div class="card mb-3 h-100">
+
+               <div class="card-body">
+                   <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                   <h5 class="card-title">Card title</h5>
+                   <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                </div>
            </div>
-         </div>
-         <div>
+       </div>
+           
+         
            
            
            `;
-         }
+        //  }
             // console.log(element.competition.name);
             // console.log(element.date);
             // console.log(element.embed);

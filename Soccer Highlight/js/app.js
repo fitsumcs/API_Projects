@@ -1,18 +1,19 @@
-document.addEventListener('DOMContentLoaded', loadDataFromApi);
+document.addEventListener('DOMContentLoaded', loadDataFromSApi);
 const socApi = new SoccerApi();
 const soccerUi = new SoccerUI();
 
-function loadDataFromApi()
+function loadDataFromSApi()
 {
-    
+        
+        soccerUi.showSoccerData();
    
      // make the class 
-     socApi.getSoccerData().then(data1=>{
+//      socApi.getSoccerData().then(data1=>{
         
-             // show data
-             soccerUi.showSoccerData(data1);
+//              // show data
+//              soccerUi.showSoccerData(data1);
          
-     });
+//      });
    
 }
 
