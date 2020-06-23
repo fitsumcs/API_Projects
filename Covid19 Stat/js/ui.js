@@ -133,6 +133,38 @@ class UI {
     });
     
 }
+ drawLineGraph(data)
+{
+    let total =[];
+    let year = []
+    for (const key in data) {
+        if (data.hasOwnProperty(key)) {
+            year.push(key)
+            total.push( data[key].total_cases);
+            
+            
+        }
+    } 
+    new Chart(document.getElementById("line-chart"), {
+        type: 'line',
+        data: {
+          labels: year,
+          datasets: [{ 
+              data: total,
+              label: "Ethiopia",
+              borderColor: "#ff0000",
+              fill: false
+            }, 
+          ]
+        },
+        options: {
+          title: {
+            display: true,
+            text: 'Infection Graph on Ethiopia'
+          }
+        }
+      });
+}
 
 }
 

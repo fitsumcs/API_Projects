@@ -130,15 +130,21 @@
                     </tbody>
                     </table>
                     <p>
-                        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target=".multi-collapse" aria-expanded="false" aria-controls="multiCollapseExample1 multiCollapseExample2">Visual Presentation</button>
+                        <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                          Death Recovery Rate
+                        </a>
+                        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample">
+                          Infection Graph
+                        </button>
                       </p>
-                      <div class="row">
-                        <div class="col">
-                          <div class="collapse multi-collapse" id="multiCollapseExample1">
-                            <div class="card card-body">
-                                <canvas id="pie-chart" width="900" height="450"></canvas>
-                            </div>
-                          </div>
+                      <div class="collapse" id="collapseExample">
+                        <div class="card card-body">
+                            <canvas id="pie-chart" width="800" height="450"></canvas>
+                        </div>
+                      </div>
+                      <div class="collapse" id="collapseExample2">
+                        <div class="card card-body">
+                            <canvas id="line-chart" width="800" height="450"></canvas>
                         </div>
                       </div>
                 </div>

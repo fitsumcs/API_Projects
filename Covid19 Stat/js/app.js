@@ -14,6 +14,9 @@ function loadDataFromApi()
         ui.showChart(data1);
          
      });
+     gitH.getHistoryData().then(data=>{
+          ui.drawLineGraph(data.data);
+      })
    
     
 
