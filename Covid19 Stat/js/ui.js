@@ -19,6 +19,7 @@ class UI {
         this.etotal_per1m_population = document.querySelector('#etotal-per1m-population');
         this.etotal_deaths = document.querySelector('#etotal-deaths');
         this.etotal_recovered = document.querySelector('#etotal-recovered');
+        this.populationTotal = document.querySelector('#tp');
 
     }
 
@@ -44,6 +45,7 @@ class UI {
             this.etotal_per1m_population.innerHTML = element.total_cases_per_1m_population;
             this.etotal_deaths.innerHTML = element.deaths;
             this.etotal_recovered.innerHTML = element.total_recovered;
+            this.populationTotal.innerHTML = "109.2 million(2018)";
     
         }
         });
