@@ -11,6 +11,14 @@ class UI {
         this.total_deaths = document.querySelector('#total-deaths');
         this.total_recovered = document.querySelector('#total-recovered');
         this.countries_stat = document.querySelector('#data');
+        // Ethiopia
+        this.enew_cases = document.querySelector('#enew-cases');
+        this.enew_deaths = document.querySelector('#enew-deaths');
+        this.eserious_critical = document.querySelector('#eserious-critical');
+        this.etotal_cases = document.querySelector('#etotal-cases');
+        this.etotal_per1m_population = document.querySelector('#etotal-per1m-population');
+        this.etotal_deaths = document.querySelector('#etotal-deaths');
+        this.etotal_recovered = document.querySelector('#etotal-recovered');
 
     }
 
@@ -25,6 +33,22 @@ class UI {
         this.total_per1m_population.innerHTML = data.data.world_total.total_cases_per_1m_population;
         this.total_deaths.innerHTML = data.data.world_total.total_deaths;
         this.total_recovered.innerHTML = data.data.world_total.total_recovered;
+          
+        data.data.countries_stat.forEach(element => {
+            if(element.country_name === 'Ethiopia')
+        {
+            this.enew_cases.innerHTML = element.new_cases ;
+            this.enew_deaths.innerHTML = element.new_deaths;
+            this.eserious_critical.innerHTML = element.serious_critical;
+            this.etotal_cases.innerHTML = element.cases;
+            this.etotal_per1m_population.innerHTML = element.total_cases_per_1m_population;
+            this.etotal_deaths.innerHTML = element.deaths;
+            this.etotal_recovered.innerHTML = element.total_recovered;
+        }
+        });
+        
+
+
         $('#myTable').DataTable({  
             "data"     :     data.data.countries_stat,  
             "columns"     :     [  
