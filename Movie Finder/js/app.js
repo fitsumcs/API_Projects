@@ -1,6 +1,6 @@
-const textI = document.querySelector('#searchUser');
-const gitH = new GitHub();
-const ui = new UI();
+const textI = document.querySelector('#searchMovie');
+const movApi = new Movie();
+const movui = new MovieUI();
 textI.addEventListener('keyup',e=>{
 
    const input = textI.value;
@@ -9,27 +9,18 @@ textI.addEventListener('keyup',e=>{
    {
     // console.log(input);
     // make the class 
-    gitH.getUser(input).then(data=>{
+    movApi.getMovie(input).then(data=>{
        
-        if(data.profile.message === 'Not Found')
-        {
-            // show error
-            ui.showError('User Does Not Exist', 'alert alert-danger');
-            
-        }
-        else
-        {
-            // show profile
-            ui.showProfile(data.profile);
-            ui.showRepo(data.repo);
-            // console.log(data);
-        }
+      
+            // show Movie
+            movui.showMovie(data);
+              
     });
    }
    else
    {
     //    clear profile
-        ui.clearProfile();
+    movui.clearProfile();
    }
 
 

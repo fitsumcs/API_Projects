@@ -1,33 +1,29 @@
-class UI {
+class MovieUI {
     constructor() {
-        this.profile = document.querySelector('#profile');
+        this.moviedetail = document.querySelector('#moviedetail');
     }
 
-    showProfile(user) {
-        this.profile.innerHTML = `
+    showMovie(movie) {
+        this.moviedetail.innerHTML = `
         <div class= "card card-body mb-3">
             <div class="row">  
                 <div class="col-md-3">
-                    <img class="img-fluid mb-2" src="${user.avatar_url}">
-                    <a href="${user.html_url}" target="blank" class="btn btn-secondary btn-block mb-4" >View Porfile</a>
+                    <img class="img-fluid mb-2" src="${movie.data.poster}">
+                    <a href="${movie.data.trailer.link}" target="blank" class="btn btn-secondary btn-block mb-4" >View Trailer</a>
                 </div>
                 <div class="col-md-9">
-                    <span class="badge badge-primary font-weight-bold">#Public Repo : ${user.public_repos}</span>
-                    <span class="badge badge-secondary font-weight-bold">#Public Gists : ${user.public_gists}</span>
-                    <span class="badge badge-success font-weight-bold">#Followers: ${user.followers}</span>
-                    <span class="badge badge-info font-weight-bold">#Following: ${user.following}</span>
-                    <br><br>
                     <ul class="list-group">
-                    <li class="list-group-item font-weight-bold">Company: ${user.company}</li>
-                    <li class="list-group-item font-weight-bold">Location: ${user.location}</li>
-                    <li class="list-group-item font-weight-bold">Member Since: ${user.created_at}</li>
-                    <li class="list-group-item font-weight-bold">Website/Blog: ${user.blog}</li>
+                    <li class="list-group-item "><b>Title: </b>${movie.data.title}</li>
+                    <li class="list-group-item "><b>Year: </b>${movie.data.year}</li>
+                    <li class="list-group-item "><b>Plot: </b>${movie.data.plot}</li>
+                    <li class="list-group-item "><b>Rating: </b>${movie.data.rating}</li>
+                    <li class="list-group-item "><b>Rating Votes: </b>${movie.data.rating_votes}</li>
                     </ul>
                 </div>
               
             </div>
         </div>
-        <h3 class="page-heading mb-3">Public Repositories <span class="badge badge-pill badge-secondary ">10</spa></h3>
+        <h3 class="page-heading mb-3">Technical Detail <span class="badge badge-pill badge-secondary ">10</spa></h3>
         <div class="card card-body mb-2">
         <div class="row">
           <div class="col-md-6">
@@ -47,36 +43,10 @@ class UI {
 // clear profile when empty
     clearProfile()
     {
-        this.profile.innerHTML = '';
+        this.moviedetail.innerHTML = '';
     }
-// show alert message
-    showError(msg,classType)
-    {
-        // clear 
-        this.clearAlert();
-      const div = document.createElement('div');
-      div.className = classType;
-      div.appendChild(document.createTextNode(msg));
-    //   parent 
-    const container = document.querySelector('.searchContainer');
-    const con2 = document.querySelector('.search');
 
-    container.insertBefore(div,con2);
 
-    // timeout
-    setTimeout(()=>{this.clearAlert()},1000)
-    
-
-}
-// clear alert 
-clearAlert()
-{
-    const alert = document.querySelector('.alert');
-    if(alert)
-    {
-        alert.remove();
-    }
-}
 
 // show repos
 showRepo(repos)
