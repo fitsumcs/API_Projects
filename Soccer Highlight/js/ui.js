@@ -2,34 +2,63 @@ class SoccerUI {
     constructor() 
     {
        this.divEngland = document.getElementById('en');
+       this.divSpain = document.getElementById('sp');
+       this.divItaly = document.getElementById('it');
+       this.divFrance = document.getElementById('fr');
+       this.divGermen = document.getElementById('gr');
+       this.divOther = document.getElementById('ot');
     
 
     }
 
     showSoccerData(data) 
     {
-        let output = '';
+        let output1 = '';
+        let output2 = '';
+        let output3 = '';
+        let output4 = '';
+        let output5 = '';
+        let output6 = '';
          console.log(data.data);
        data.data.forEach(element => 
         {
          if(element.competition.name.includes('ENGLAND'))
          {
-           output +=this.paintUI(element.videos[0].embed,element.title,element.competition.name,element.date);
+           output1 +=this.paintUI(element.videos[0].embed,element.title,element.competition.name,element.date);
            
        
       
          }
          else if (element.competition.name.includes('SPAIN')) 
          {
-           
+          output2 +=this.paintUI(element.videos[0].embed,element.title,element.competition.name,element.date);
          } 
-         else {
-           
-         }
+         else if (element.competition.name.includes('ITALY')) 
+         {
+          output3 +=this.paintUI(element.videos[0].embed,element.title,element.competition.name,element.date);
+         } 
+         else if (element.competition.name.includes('FRANCE')) 
+         {
+          output4 +=this.paintUI(element.videos[0].embed,element.title,element.competition.name,element.date);
+         } 
+         else if (element.competition.name.includes('GERMENY')) 
+         {
+          output5 +=this.paintUI(element.videos[0].embed,element.title,element.competition.name,element.date);
+         } 
+         else
+         {
+          output6 +=this.paintUI(element.videos[0].embed,element.title,element.competition.name,element.date);
+         } 
+       
           
             
        });
-       this.divEngland.innerHTML = output;
+       this.divEngland.innerHTML = output1;
+       this.divSpain.innerHTML = output2;
+       this.divItaly.innerHTML = output3;
+       this.divFrance.innerHTML = output4;
+       this.divGermen.innerHTML = output5;
+       this.divOther.innerHTML = output6;
         
     }
 
