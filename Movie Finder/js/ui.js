@@ -16,6 +16,7 @@ class MovieUI {
                     <li class="list-group-item "><b>Title: </b>${movie.data.title}</li>
                     <li class="list-group-item "><b>Year: </b>${movie.data.year}</li>
                     <li class="list-group-item "><b>Plot: </b>${movie.data.plot}</li>
+                    <li class="list-group-item "><b>Length: </b>${movie.data.length}</li>
                     <li class="list-group-item "><b>Rating: </b>${movie.data.rating}</li>
                     <li class="list-group-item "><b>Rating Votes: </b>${movie.data.rating_votes}</li>
                     </ul>
@@ -23,25 +24,25 @@ class MovieUI {
               
             </div>
         </div>
-        <h3 class="page-heading mb-3">Technical Detail <span class="badge badge-pill badge-secondary ">10</spa></h3>
+        <h3 class="page-heading mb-3">Movie Detail</h3>
         <div class="card card-body mb-2">
         <div class="row">
           <div class="col-md-6">
-          <h6 class="page-heading mb-3">Repositorie Name</h6>
+          <h6 class="page-heading mb-3">Actor Name</h6>
           </div>
           <div class="col-md-6">
-          <h6 class="page-heading mb-3">Repositorie Details [starts,watchers,Forks]</h6>
+          <h6 class="page-heading mb-3">Character Played</h6>
           </div>
         </div>
         
         </div>
-        <div id="prepo"></div>
+        <div id="actor"></div>
         `;
 
         // console.log(user);
     }
 // clear profile when empty
-    clearProfile()
+    clearUi()
     {
         this.moviedetail.innerHTML = '';
     }
@@ -49,27 +50,26 @@ class MovieUI {
 
 
 // show repos
-showRepo(repos)
+showCastMembers(castM)
 {
  let output = '';
- repos.forEach((element)=>{
+
+ castM.data.cast.forEach((element)=>{
    output += `
      <div class="card card-body mb-2">
      <div class="row">
        <div class="col-md-6">
-       <a href="${element.html_url}">${element.name}</a>
+       <li class="list-group-item ">${element.actor}</li>
        </div>
        <div class="col-md-6">
-       <span class="badge badge-primary">Starts : ${element.stargazers_count}</span>
-        <span class="badge badge-secondary">Watchers : ${element.watchers_count}</span>
-        <span class="badge badge-success">Forks: ${element.forks_count}</span>
+       <li class="list-group-item ">${element.character}</li>
        </div>
      </div>
      
      </div>
    `;
  });
-  document.getElementById('prepo').innerHTML = output;
+  document.getElementById('actor').innerHTML = output;
 }
 
 }

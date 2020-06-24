@@ -14,13 +14,14 @@ textI.addEventListener('keyup',e=>{
       
             // show Movie
             movui.showMovie(data);
+            movui.showCastMembers(data);
               
     });
    }
    else
    {
     //    clear profile
-    movui.clearProfile();
+    movui.clearUi();
    }
 
 
