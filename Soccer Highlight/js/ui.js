@@ -41,7 +41,7 @@ class SoccerUI {
          {
           output4 +=this.paintUI(element.videos[0].embed,element.title,element.competition.name,element.date);
          } 
-         else if (element.competition.name.includes('GERMENY')) 
+         else if (element.competition.name.includes('GERMANY')) 
          {
           output5 +=this.paintUI(element.videos[0].embed,element.title,element.competition.name,element.date);
          } 
