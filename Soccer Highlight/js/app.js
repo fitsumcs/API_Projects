@@ -1,25 +1,19 @@
 document.addEventListener('DOMContentLoaded', loadDataFromApi);
-const gitH = new CovidApi();
-const ui = new UI();
+const socApi = new SoccerApi();
+const soccerUi = new SoccerUI();
 
 function loadDataFromApi()
 {
     
    
      // make the class 
-     gitH.getData().then(data1=>{
+     socApi.getSoccerData().then(data1=>{
         
              // show data
-        ui.showData(data1);
-        ui.showChart(data1);
+             soccerUi.showSoccerData(data1);
          
      });
-     gitH.getHistoryData().then(data=>{
-          ui.drawLineGraph(data.data);
-      })
    
-    
-
 }
 
 
